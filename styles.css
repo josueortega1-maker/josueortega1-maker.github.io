@@ -141,7 +141,7 @@ h3 { font-size: 1.55rem; font-weight: 600; letter-spacing: -.02em; }
   border-top: 2px solid var(--accent);
   border-right: 2px solid var(--accent);
 }
-.portrait-wrap img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; filter: saturate(.82) contrast(1.03); }
+.portrait-wrap img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; filter: saturate(.82) contrast(1.03); }
 .portrait-mark { position: absolute; left: 1.3rem; bottom: .7rem; font-size: .69rem; font-weight: 700; line-height: 1.25; letter-spacing: .15em; text-transform: uppercase; }
 .profile-links { display: grid; margin-top: 1rem; border-top: 1px solid var(--line); }
 .profile-links a { display: flex; justify-content: space-between; padding: .75rem .15rem; border-bottom: 1px solid var(--line); font-size: .9rem; font-weight: 600; text-decoration: none; }
