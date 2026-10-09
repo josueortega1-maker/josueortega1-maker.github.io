@@ -1,0 +1,23 @@
+name: Temporary calculus exercises PDF
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-calculus-pdf.yml'
+permissions:
+  contents: write
+jobs:
+  publish-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and publish PDF
+        env:
+          TEMP_PDF_URL: 'https://uc00137492eb1efeea06fe8e6521.dl.dropboxusercontent.com/cd/0/get/DJpU2Kqy0Wa3njmiIslo7IHDgxqYSqyuVaJ1tsMFiDZ3NvCdWY5szxz_HDgc0Iti2e0D7zVISvyuR74EcI7CSo6Ks5I-Pe5YZWGJ6ZuaaGp6mYvwuzd0hpg69EjL26hGTg15QN222Mp5Ajsxw47M8zK2XJFzEBFs7u74YlDv6HliXg/file?c_luid=8db25bdb'
+        run: |
+          curl --fail --silent --show-error --location "$TEMP_PDF_URL" --output calculus-exercises-temporary.pdf
+          test "$(wc -c < calculus-exercises-temporary.pdf)" -gt 100000
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calculus-exercises-temporary.pdf
+          git commit -m "Temporarily publish calculus lecture exercises PDF"
+          git push
