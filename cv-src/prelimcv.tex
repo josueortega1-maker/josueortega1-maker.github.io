@@ -1,0 +1,67 @@
+
+% Absolutely essential packages
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% Define colors
+
+\definecolor{darkblue}{RGB}{0, 51, 102}
+\definecolor{lightblue}{RGB}{173, 216, 230}
+\definecolor{skyblue}{RGB}{135, 206, 235}
+\definecolor{powderblue}{RGB}{176, 224, 230}
+\definecolor{lightsteelblue}{RGB}{176, 196, 222}
+\definecolor{royalblue}{RGB}{65, 105, 225}
+% Hyperlinks
+\hypersetup{
+	colorlinks=true,
+	linkcolor=darkblue,
+	urlcolor=darkblue
+}
+
+% Simple section formatting
+\newcommand{\mysection}[1]{
+	\vspace{0.5cm}
+	{\large\textbf{\textcolor{darkblue}{#1}}}
+	\par\vspace{0.1cm}
+	\noindent \hrule
+	\vspace{0.25cm}
+}
+
+% Entry with date
+\newcommand{\dateentry}[2]{
+	\noindent{#1}\hfill\textit{#2}\par
+}
+\setlength{\parindent}{0pt}
+\usepackage{enumitem}
+\usepackage{refcount}% works also with hyperref (as it loads refcount)
+
+\newcounter{rev-enumi}
+\newcounter{rev-enumii}
+\newcounter{rev-enumiii}
+\newcounter{rev-enumiv}
+
+\newcommand\revcounter[1]{%
+	\setcounter{#1}{\inteval{\value{#1}-2}}%
+	\stepcounter{rev-#1}%
+	\gdef\afterrev{%
+		\refstepcounter{rev-#1}%
+		\setcounter{rev-#1}{0}}}
+
+\AddEnumerateCounter\revcounter\revcounter{} % the 2nd is dummy
+
+\SetEnumitemKey{revRoman}{%
+	start = {\inteval{\getrefnumber{enum-\EnumitemId}-1}},
+	label = (\Roman*)\revcounter*,
+	ref = (\Roman*),
+	after = \afterrev
+	\label{enum-\EnumitemId}}
+
+\SetEnumitemKey{reversed}{%
+	start = {\inteval{\getrefnumber{enum-\EnumitemId}-1}},
+	label = \arabic*.\revcounter*,
+	ref = \arabic*.,
+	after = \afterrev
+	\label{enum-\EnumitemId}}
+
