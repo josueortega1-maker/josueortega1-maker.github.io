@@ -392,71 +392,20 @@ footer a { color: inherit; text-decoration: none; }
 }
 
 
-/* Optional analytics preferences: displayed only when consent is undecided. */
-.footer-analytics-link {
-  border: 0;
-  padding: 0;
-  background: transparent;
+/* Discreet footer privacy disclosure. Never floats above the page. */
+.analytics-disclosure { display: inline-block; vertical-align: baseline; }
+.analytics-disclosure summary {
+  display: inline;
   color: inherit;
-  font: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
-.footer-analytics-link:hover { color: var(--accent); }
-
-.analytics-consent[hidden] { display: none !important; }
-.analytics-consent {
-  position: fixed;
-  z-index: 1000;
-  right: 1rem;
-  bottom: 1rem;
-  width: min(450px, calc(100vw - 2rem));
-  padding: 1.25rem 1.4rem;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--white);
-  color: var(--ink);
-  box-shadow: 0 12px 38px rgba(16, 27, 49, .18);
-}
-.analytics-consent h2 {
-  margin: 0 0 .5rem;
-  font-size: 1.1rem;
-  line-height: 1.4;
-}
-.analytics-consent p {
-  margin: .5rem 0;
-  font-size: .83rem;
+.analytics-disclosure summary:hover { color: var(--accent); }
+.analytics-disclosure p {
+  max-width: 34rem;
+  font-size: .78rem;
   line-height: 1.5;
+  margin: .55rem 0;
 }
-.analytics-consent .analytics-consent-fine {
-  margin: .7rem 0 0;
-  font-size: .76rem;
-}
-.analytics-consent a { color: var(--accent-dark); }
-.analytics-consent-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1rem;
-}
-.analytics-consent-actions button {
-  padding: .55rem 1rem;
-  border: 1px solid var(--ink);
-  border-radius: 5px;
-  background: var(--white);
-  color: var(--ink);
-  cursor: pointer;
-  font: inherit;
-  font-size: .82rem;
-  font-weight: 600;
-}
-.analytics-consent-actions #analytics-allow {
-  background: var(--ink);
-  color: var(--white);
-}
-.analytics-consent-actions button:focus-visible,
-.footer-analytics-link:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
+.analytics-disclosure a { text-decoration: underline; }
