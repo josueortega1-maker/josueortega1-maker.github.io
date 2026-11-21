@@ -79,7 +79,8 @@ document.querySelector('#year').textContent = String(new Date().getFullYear());
     allow.focus();
   });
 
+  // Do not show a consent popup on arrival. Visitors can opt in by
+  // selecting “Privacy & analytics” in the footer at any time.
   const choice = savedChoice();
   if (choice === 'allow') startClarity();
-  else if (choice !== 'decline') notice.hidden = false;
 })();
