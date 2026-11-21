@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <style>
     .working-list > li.featured-paper {
       margin-bottom: 1rem;
@@ -288,9 +288,20 @@
 
   <footer>
     <p>© <span id="year">2026</span> Josué Ortega</p>
-    <span><a href="#top">Back to top ↑</a></span>
+    <span><button type="button" class="footer-analytics-link" id="analytics-settings">Privacy &amp; analytics</button> · <a href="#top">Back to top ↑</a></span>
   </footer>
 
-  <script src="script.js"></script>
+  <aside class="analytics-consent" id="analytics-consent" aria-label="Optional website analytics" hidden>
+    <h2>Optional website analytics</h2>
+    <p>This website uses Microsoft Clarity only if you allow it. Clarity helps me understand approximate visitor cities and countries, referring sites, pages viewed, and interactions (including session recordings). It may use cookies.</p>
+    <p>Declining keeps Clarity switched off. You can change your choice at any time using “Privacy &amp; analytics” in the footer.</p>
+    <div class="analytics-consent-actions">
+      <button type="button" id="analytics-decline">Decline</button>
+      <button type="button" id="analytics-allow">Allow analytics</button>
+    </div>
+    <p class="analytics-consent-fine">Site contact: <a href="mailto:j.ortega@qub.ac.uk">j.ortega@qub.ac.uk</a>. <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft privacy statement</a>.</p>
+  </aside>
+
+  <script src="script.js?v=2"></script>
 </body>
 </html>
